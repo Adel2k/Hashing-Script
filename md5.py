@@ -3,7 +3,7 @@ import sys
 
 filename = sys.argv[1]
 
-new = f"SHA256-{filename}"
+new = f"md5-{filename}"
 
 if len(sys.argv) == 2:
 	try:
@@ -12,7 +12,7 @@ if len(sys.argv) == 2:
 				for line in file:
 					new_file.write(line.strip())
 					new_file.write(" -> ")
-					new_file.write(hashlib.sha256(line.encode()).hexdigest())
+					new_file.write(hashlib.md5(line.encode()).hexdigest())
 					new_file.write("\n")
 	except FileNotFoundError:
 		print("File does not exict.")
